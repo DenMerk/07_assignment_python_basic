@@ -102,55 +102,52 @@ def compare_lecturers(lecturers, course):
             print(f"Лектор {lecturer.name} {lecturer.surname} не читает курс по {course}")
 
 
-student_list = []  # список студентов
-lecturer_list = []  # список лекторов
+def main():
+    student_list = []  # список студентов
+    lecturer_list = []  # список лекторов
 
-first_student = Student('Петя', 'Петров', 'm')  # инициализация студентов
-student_list.append(first_student)
-first_student.courses_in_progress += ['Python']
-first_student.courses_in_progress += ['Git']
-first_student.finished_courses += ['Введение в программирование']
-second_student = Student('Ваня', 'Иванов', 'm')
-student_list.append(second_student)
-second_student.courses_in_progress += ['Python']
-second_student.courses_in_progress += ['Git']
-second_student.finished_courses += ['Введение в программирование']
+    first_student = Student('Петя', 'Петров', 'm')  # инициализация студентов
+    student_list.append(first_student)
+    first_student.courses_in_progress += ['Python']
+    first_student.courses_in_progress += ['Git']
+    first_student.finished_courses += ['Введение в программирование']
+    second_student = Student('Ваня', 'Иванов', 'm')
+    student_list.append(second_student)
+    second_student.courses_in_progress += ['Python']
+    second_student.courses_in_progress += ['Git']
+    second_student.finished_courses += ['Введение в программирование']
 
-first_python_reviewer = Reviewer('Михаил', 'Михайлов')  # инициализация проверяющих и оценки студентам
-second_python_reviewer = Reviewer('Алексей', 'Алексеев')
-first_python_reviewer.courses_attached += ['Python']
-second_python_reviewer.courses_attached += ['Python']
-first_python_reviewer.rate_hw(first_student, 'Python', 10)
-first_python_reviewer.rate_hw(first_student, 'Python', 5)
-second_python_reviewer.rate_hw(second_student, 'Python', 10)
-second_python_reviewer.rate_hw(second_student, 'Python', 9)
+    first_python_reviewer = Reviewer('Михаил', 'Михайлов')  # инициализация проверяющих и оценки студентам
+    second_python_reviewer = Reviewer('Алексей', 'Алексеев')
+    first_python_reviewer.courses_attached += ['Python']
+    second_python_reviewer.courses_attached += ['Python']
+    first_python_reviewer.rate_hw(first_student, 'Python', 10)
+    first_python_reviewer.rate_hw(first_student, 'Python', 5)
+    second_python_reviewer.rate_hw(second_student, 'Python', 10)
+    second_python_reviewer.rate_hw(second_student, 'Python', 9)
 
-first_lecturer = Lecturer('Василий', 'Васильев')  # инициализация лекторов
-first_lecturer.courses_attached += ['Python']
-lecturer_list.append(first_lecturer)
-second_lecturer = Lecturer('Павел', 'Павлов')
-second_lecturer.courses_attached += ['Python']
-lecturer_list.append(second_lecturer)
+    first_lecturer = Lecturer('Василий', 'Васильев')  # инициализация лекторов
+    first_lecturer.courses_attached += ['Python']
+    lecturer_list.append(first_lecturer)
+    second_lecturer = Lecturer('Павел', 'Павлов')
+    second_lecturer.courses_attached += ['Python']
+    lecturer_list.append(second_lecturer)
 
-first_student.grades_for_lecturer(first_lecturer, 'Python', 9)  # Оценки для лекторов
-first_student.grades_for_lecturer(second_lecturer, 'Python', 10)
-second_student.grades_for_lecturer(first_lecturer, 'Python', 10)
-second_student.grades_for_lecturer(second_lecturer, 'Python', 8)
+    first_student.grades_for_lecturer(first_lecturer, 'Python', 9)  # Оценки для лекторов
+    first_student.grades_for_lecturer(second_lecturer, 'Python', 10)
+    second_student.grades_for_lecturer(first_lecturer, 'Python', 10)
+    second_student.grades_for_lecturer(second_lecturer, 'Python', 8)
 
-compare_lecturers(lecturer_list, 'Python')  # Расчет средних оценок студнтов и лекторов
-compare_students(student_list, 'Python')
+    compare_lecturers(lecturer_list, 'Python')  # Расчет средних оценок студнтов и лекторов
+    compare_students(student_list, 'Python')
 
-print(first_python_reviewer)  # Вывод информации по проверяющим, лекторам и студентам
-print(second_python_reviewer)
-print(first_lecturer)
-print(second_lecturer)
-print(first_student)
-print(second_student)
+    print(first_python_reviewer)  # Вывод информации по проверяющим, лекторам и студентам
+    print(second_python_reviewer)
+    print(first_lecturer)
+    print(second_lecturer)
+    print(first_student)
+    print(second_student)
 
 
-#
-
-#
-#
-# # if __name__ == '__main__':
-# #     main()
+if __name__ == '__main__':
+    main()
